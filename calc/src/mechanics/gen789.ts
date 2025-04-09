@@ -396,6 +396,7 @@ export function calculateSMSSSV(
       (move.hasType('Fire') && defender.hasAbility('Flash Fire', 'Well-Baked Body')) ||
       (move.hasType('Water') && defender.hasAbility('Dry Skin', 'Storm Drain', 'Water Absorb')) ||
       (move.hasType('Rock') && defender.hasAbility('Mountaineer')) ||
+      (move.hasType('Ice') && defender.hasAbility('Ice Eater')) ||
       (move.hasType('Electric') &&
         defender.hasAbility('Lightning Rod', 'Motor Drive', 'Volt Absorb')) ||
       (move.hasType('Ground') &&
@@ -1090,6 +1091,7 @@ export function calculateBPModsSMSSSV(
     (attacker.hasAbility('Mega Launcher') && move.flags.pulse) ||
     (attacker.hasAbility('Strong Jaw') && move.flags.bite) ||
     (attacker.hasAbility('Steely Spirit') && move.hasType('Steel')) ||
+
     (attacker.hasAbility('Sharpness') && move.flags.slicing)
   ) {
     bpMods.push(6144);
@@ -1125,6 +1127,7 @@ export function calculateBPModsSMSSSV(
       field.hasWeather('Sand') && move.hasType('Rock', 'Ground', 'Steel')) ||
     (attacker.hasAbility('Analytic') &&
       (turnOrder !== 'first' || field.defenderSide.isSwitching === 'out')) ||
+    (attacker.hasAbility('Emperors Presence') && move.hasType('Water') || move.hasType('Steel')) ||
     (attacker.hasAbility('Tough Claws') && move.flags.contact) ||
     (attacker.hasAbility('Punk Rock') && move.flags.sound) ||
     (attacker.hasAbility('Iron Fist') && move.flags.punch) ||
@@ -1139,6 +1142,15 @@ export function calculateBPModsSMSSSV(
     bpMods.push(5325);
     desc.isBattery = true;
   }
+
+  if (
+    field.attackerSide.isEmperorsPresence &&
+    (move.hasType('Water') || move.hasType('Steel'))
+  ) {
+    bpMods.push(5325);
+    desc.isEmperorsPresence = true;
+  }
+
 
   if (field.attackerSide.isPowerSpot) {
     bpMods.push(5325);

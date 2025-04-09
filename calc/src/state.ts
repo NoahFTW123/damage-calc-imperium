@@ -74,6 +74,7 @@ export namespace State {
     isFriendGuard?: boolean;
     isAuroraVeil?: boolean;
     isBattery?: boolean;
+    isEmperorsPresence?: boolean;
     isPowerSpot?: boolean;
     isSwitching?: 'out' | 'in';
   }

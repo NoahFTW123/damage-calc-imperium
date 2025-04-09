@@ -38,7 +38,7 @@ export interface MoveData {
   readonly isBite?: boolean;
   readonly isBullet?: boolean;
   readonly isSound?: boolean;
-  readonly isPulse?: boolean;  
+  readonly isPulse?: boolean;
   readonly isSlicing?: boolean;
   readonly isWind?: boolean;
   readonly isKick?: boolean;
@@ -3638,6 +3638,7 @@ const SS_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     category: 'Physical',
     secondaries: true,
     makesContact: true,
+    isKick: true,
     zp: 175,
     maxPower: 90,
   },
@@ -4212,6 +4213,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     secondaries: true,
     hasCrashDamage: true,
     makesContact: true,
+    isKick: true,
   },
   'Barb Barrage': {
     bp: 60,

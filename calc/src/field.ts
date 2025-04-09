@@ -90,10 +90,11 @@ export class Side implements State.Side {
   isFriendGuard: boolean;
   isAuroraVeil: boolean;
   isBattery: boolean;
+  isEmperorsPresence: boolean;
   isPowerSpot: boolean;
   isSwitching?: 'out' | 'in';
 
-  constructor(side: State.Side = {}) {
+  constructor(side: Partial<State.Side> = {}) {
     this.spikes = side.spikes || 0;
     this.steelsurge = !!side.steelsurge;
     this.vinelash = !!side.vinelash;
@@ -112,6 +113,7 @@ export class Side implements State.Side {
     this.isFriendGuard = !!side.isFriendGuard;
     this.isAuroraVeil = !!side.isAuroraVeil;
     this.isBattery = !!side.isBattery;
+    this.isEmperorsPresence = !!side.isEmperorsPresence;
     this.isPowerSpot = !!side.isPowerSpot;
     this.isSwitching = side.isSwitching;
   }

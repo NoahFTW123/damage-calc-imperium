@@ -40,6 +40,7 @@ export interface RawDesc {
   isProtected?: boolean;
   isReflect?: boolean;
   isBattery?: boolean;
+  isEmperorsPresence?: boolean;
   isPowerSpot?: boolean;
   isWonderRoom?: boolean;
   isSwitching?: 'out' | 'in';
